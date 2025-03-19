@@ -1,0 +1,13 @@
+<div class="task-list">
+  <div *ngFor="let day of days; trackBy: trackDay" class="day">
+    <h3>{{ day.dayTitle }}</h3>
+    <ul>
+      <li
+        *ngFor="let task of day.tasks; trackBy: trackTask"
+        [class.priority]="task.priority"
+      >
+        {{ task.titleTask }}
+      </li>
+    </ul>
+  </div>
+</div>

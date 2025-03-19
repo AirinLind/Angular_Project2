@@ -1,0 +1,22 @@
+<div class="form-container">
+  <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="task-form">
+    <div class="left-side">
+      <div class="selects">
+        <select formControlName="dayOfWeek">
+          <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+        </select>
+
+        <select formControlName="priority">
+          <option value="false">Не важный</option>
+          <option value="true">Важный</option>
+        </select>
+      </div>
+
+      <input formControlName="titleTask" placeholder="Описание" required />
+    </div>
+    
+    <div class="button-wrapper">
+      <button type="submit">Добавить</button>
+    </div>
+  </form>
+</div>
