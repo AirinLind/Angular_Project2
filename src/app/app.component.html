@@ -1,4 +1,4 @@
-<div class="body">
-  <app-task-form [daysOfWeek]="daysOfWeek"></app-task-form>
-  <app-task-list></app-task-list>
+<div class="container">
+  <app-task-form [daysOfWeek]="['ПНД', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']" [updateTasks]="updateTasks"></app-task-form>
+  <app-task-list [days]="days()" [updateTasks]="updateTasks"></app-task-list>
 </div>

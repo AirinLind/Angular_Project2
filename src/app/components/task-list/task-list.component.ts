@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Signal, inject } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { Day, Task } from '../../shared/types/task.types';
-import {NgFor} from "@angular/common";
-
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-task-list',
+  standalone: true,
   templateUrl: './task-list.component.html',
-  imports: [NgFor],
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.css'],
+  imports: [NgFor]
 })
-export class TaskListComponent implements OnInit {
-  public days: Day[] = []; 
+export class TaskListComponent {
+  @Input() public days: any[] = [];
+  @Input() public updateTasks!: () => void;
 
-  constructor(private taskService: TaskService) {}
+  private taskService = inject(TaskService);
 
-  ngOnInit(): void {
-    this.days = this.taskService.getTasks();
+  public deleteTask(day: any, task: any): void {
+    this.taskService.deleteTask(day, task);
+    this.updateTasks();
   }
 
-  public trackDay(index: number, day: Day): number { 
-    return day.idDay;
-  }
-
-  public trackTask(index: number, task: Task): number { 
-    return task.idTask;
+  public deleteDay(day: any): void {
+    this.taskService.deleteDay(day);
+    this.updateTasks();
   }
 }

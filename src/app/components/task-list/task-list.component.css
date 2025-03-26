@@ -1,57 +1,87 @@
 .task-list {
-    width: 980px;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 0 auto;
-  }
-  
-  .day {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .day h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .day ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 10px;
-  }
-  
-  .day ul li {
-    flex: 0 0 calc(33.33% - 10px);
-    height: 20px;
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    background-color: #1ABC9C;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    color: white;
-  }
-  
-  .day ul li:hover {
-    transform: translateX(5px); 
-  }
-  
-  .day ul li.priority {
-    background-color: #E74C3C; 
-    font-weight: bold;
-  }
-  
-  .day ul li:last-child {
-    margin-bottom: 0;
-  }
-  
+  width: 100%;
+  max-width: 980px;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.day {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.day h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.delete-day {
+  background-color: #e74c3c;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-day:hover {
+  background-color: #c0392b;
+}
+
+.task-list-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task-list-items li {
+  flex: 0 0 calc(33.33% - 10px);
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+.task-list-items li.priority {
+  background-color: #e74c3c;
+  font-weight: bold;
+}
+
+.task-list-items li:not(.priority) {
+  background-color: #1ABC9C;
+}
+
+
+.delete-task {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.delete-task:hover {
+  color: #ddd;
+}

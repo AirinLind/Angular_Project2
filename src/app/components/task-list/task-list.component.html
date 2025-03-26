@@ -1,12 +1,14 @@
 <div class="task-list">
-  <div *ngFor="let day of days; trackBy: trackDay" class="day">
-    <h3>{{ day.dayTitle }}</h3>
-    <ul>
-      <li
-        *ngFor="let task of day.tasks; trackBy: trackTask"
-        [class.priority]="task.priority"
-      >
-        {{ task.titleTask }}
+  <div *ngFor="let day of days" class="day">
+    <div class="day-header">
+      <h3>{{ day.dayTitle }}</h3>
+      <button class="delete-day" (click)="deleteDay(day)">Удалить день</button>
+    </div>
+
+    <ul class="task-list-items">
+      <li *ngFor="let task of day.tasks" [class.priority]="task.priority">
+        <span>{{ task.titleTask }}</span>
+        <button class="delete-task" (click)="deleteTask(day, task)">✖</button>
       </li>
     </ul>
   </div>

@@ -7,14 +7,14 @@
         </select>
 
         <select formControlName="priority">
-          <option value="false">Не важный</option>
-          <option value="true">Важный</option>
+          <option [value]="false">Не важный</option>
+          <option [value]="true">Важный</option>
         </select>
       </div>
 
       <input formControlName="titleTask" placeholder="Описание" required />
     </div>
-    
+
     <div class="button-wrapper">
       <button type="submit">Добавить</button>
     </div>
